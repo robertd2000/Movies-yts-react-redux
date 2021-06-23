@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Link, Route } from 'react-router-dom';
+import { Header } from './components/Header';
+import { MoviesList } from './components/MoviesList';
+import { Pagination } from './components/Pagination';
+import { MovieDetails } from './components/MovieDetails';
 
-function App() {
+function App(props: any) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="head">
+        <Link className="header-link" to="/">
+          Movies
+        </Link>
+      </div>
+
+      <Route exact path="/" component={Main} />
+      <Route
+        exact
+        path="/movie/:id?"
+        component={() => <MovieDetails {...props} />}
+      />
     </div>
   );
 }
+
+const Main = () => (
+  <>
+    <Header />
+    <MoviesList />
+    <Pagination />
+  </>
+);
 
 export default App;
