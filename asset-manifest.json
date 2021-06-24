@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Movies-yts-react-redux/static/css/main.307aa281.chunk.css",
+    "main.js": "/Movies-yts-react-redux/static/js/main.a545454c.chunk.js",
+    "main.js.map": "/Movies-yts-react-redux/static/js/main.a545454c.chunk.js.map",
+    "runtime-main.js": "/Movies-yts-react-redux/static/js/runtime-main.5dfc456a.js",
+    "runtime-main.js.map": "/Movies-yts-react-redux/static/js/runtime-main.5dfc456a.js.map",
+    "static/js/2.fd6ff4d4.chunk.js": "/Movies-yts-react-redux/static/js/2.fd6ff4d4.chunk.js",
+    "static/js/2.fd6ff4d4.chunk.js.map": "/Movies-yts-react-redux/static/js/2.fd6ff4d4.chunk.js.map",
+    "static/js/3.d93a461f.chunk.js": "/Movies-yts-react-redux/static/js/3.d93a461f.chunk.js",
+    "static/js/3.d93a461f.chunk.js.map": "/Movies-yts-react-redux/static/js/3.d93a461f.chunk.js.map",
+    "index.html": "/Movies-yts-react-redux/index.html",
+    "static/css/main.307aa281.chunk.css.map": "/Movies-yts-react-redux/static/css/main.307aa281.chunk.css.map",
+    "static/js/2.fd6ff4d4.chunk.js.LICENSE.txt": "/Movies-yts-react-redux/static/js/2.fd6ff4d4.chunk.js.LICENSE.txt",
+    "static/media/empty.817176e3.png": "/Movies-yts-react-redux/static/media/empty.817176e3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5dfc456a.js",
+    "static/js/2.fd6ff4d4.chunk.js",
+    "static/css/main.307aa281.chunk.css",
+    "static/js/main.a545454c.chunk.js"
+  ]
+}
