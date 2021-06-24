@@ -28,7 +28,7 @@ export const MovieCard: React.FC<MovieCardType> = ({
         <br />
         {year}
         <div className="card-link">
-          <Link to={`movie/${id}`}>More</Link>
+          <Link to={`/movie/${id}`}>More</Link>
         </div>
       </div>
     </div>

@@ -15,6 +15,8 @@ function App(props: any) {
       </div>
 
       <Route exact path="/" component={Main} />
+      <Route exact path="/Movies-yts-react-redux" component={Main} />
+
       <Route
         exact
         path="/movie/:id?"

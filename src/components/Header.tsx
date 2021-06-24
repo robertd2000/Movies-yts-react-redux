@@ -16,9 +16,16 @@ export const Header = () => {
     setValue('');
   };
 
+  const enterChange = async (e: any) => {
+    if (e.key === 'Enter') {
+      await buttonHandler(e);
+    }
+  };
+
   return (
     <div className="webflow-style-input">
       <input
+        onKeyPress={enterChange}
         onChange={onHandleChange}
         className=""
         type="text"

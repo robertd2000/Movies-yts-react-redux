@@ -205,6 +205,7 @@ h1 {
 
 .pagination > li > a,
 .pagination > li > span {
+  cursor: pointer;
   position: relative;
   padding: 6px 12px;
   margin-left: -1px;
@@ -244,8 +245,14 @@ h1 {
 }
 
 .close-span {
+  cursor: pointer;
   right: 0;
   text-align: right;
+  padding: 5px 10px;
+}
+
+.close-span:hover {
+  background-color: rgb(125, 178, 247);
 }
 
 .comment-header {
@@ -256,4 +263,34 @@ h1 {
 .send-comment-button {
   background-color: #5a85af;
   border: none;
+}
+
+.empty {
+  color: #fff;
+  font-size: 40px;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .comments {
+    margin: 5px;
+  }
+
+  .webflow-style-input {
+    max-width: 100px;
+    margin: 5px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .pagination {
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+    max-width: 300px;
+  }
+
+  .pagination li {
+    margin: 10px;
+  }
 }

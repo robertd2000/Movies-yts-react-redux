@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CurretMovieSuggestionsType } from '../type';
 import s from './MovieDetails.module.css';
 
@@ -30,7 +30,6 @@ const MovieSuggestionsCard: React.FC<CurretMovieSuggestionsType> = ({
   medium_cover_image,
   id,
 }) => {
-  console.log(useLocation().pathname.split('/'));
   return (
     <div className={s.movieSuggestionsCard}>
       <Link to={`/movie/${id}`}>

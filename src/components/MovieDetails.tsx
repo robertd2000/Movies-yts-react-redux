@@ -19,7 +19,6 @@ const MovieDetailsData = (props: any) => {
   const movieSuggestions = useSelector(
     (state: RootReducer) => state.reducer.curretMovieSuggestions
   );
-  console.log(movieSuggestions);
   useEffect(() => {
     dispatch(getMoviesDetails(movieId));
   }, [movieId]);

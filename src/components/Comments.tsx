@@ -1,7 +1,18 @@
 import { useState } from 'react';
 
 type CommentsType = {
+  id: number | string;
+};
+
+type CommentObj = {
+  id: string;
+  comments: CommentListItem[];
+};
+
+type CommentListItem = {
   id: number;
+  text: string;
+  date: string;
 };
 
 export const Comments: React.FC<CommentsType> = ({ id }) => {
@@ -9,7 +20,9 @@ export const Comments: React.FC<CommentsType> = ({ id }) => {
   let list = lsList.length > 0 ? JSON.parse(lsList) : [];
   const [commentsList, setCommentsList] = useState(list);
   const [value, setValue] = useState('');
-  const currentMovieComments = commentsList.find((c: any) => c.id == id) || {
+  const currentMovieComments = commentsList.find(
+    (c: CommentObj) => c.id === id
+  ) || {
     id,
     comments: [],
   };
@@ -26,7 +39,10 @@ export const Comments: React.FC<CommentsType> = ({ id }) => {
         },
       ],
     };
-    const newCommentsList = commentsList.filter((c: any) => c.id != id);
+    const newCommentsList = commentsList.filter((c: CommentObj) => {
+      console.log(c);
+      return c.id !== id;
+    });
     setCommentsList([...newCommentsList, newComment]);
     localStorage.setItem(
       'comments',
@@ -35,11 +51,11 @@ export const Comments: React.FC<CommentsType> = ({ id }) => {
     setValue('');
   };
 
-  const deleteComment = (commentId: any) => {
-    const newCommentsList = commentsList.filter((c: any) => c.id != id);
+  const deleteComment = (commentId: number) => {
+    const newCommentsList = commentsList.filter((c: CommentObj) => c.id !== id);
     let comList = newCommentsList ? newCommentsList : { id: id, comments: [] };
     const newCurrentCommentList = currentMovieComments.comments.filter(
-      (c: any) => c.id != commentId
+      (c: CommentListItem) => c.id !== commentId
     );
 
     setCommentsList([...comList, { id, comments: newCurrentCommentList }]);
@@ -49,14 +65,20 @@ export const Comments: React.FC<CommentsType> = ({ id }) => {
     );
   };
 
-  const inputHandler = (e: any) => {
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+  };
+
+  const enterChange = (e: any) => {
+    if (e.key === 'Enter') {
+      return setNewComments(value);
+    }
   };
 
   return (
     <div className="comments">
       <div className="webflow-style-input">
-        <input onChange={inputHandler} type="text" />
+        <input onChange={inputHandler} onKeyPress={enterChange} type="text" />
         <button
           className="send-comment-button"
           onClick={() => setNewComments(value)}
@@ -66,9 +88,9 @@ export const Comments: React.FC<CommentsType> = ({ id }) => {
       </div>
 
       {currentMovieComments
-        ? currentMovieComments.comments.map((comment: any) => {
+        ? currentMovieComments.comments.map((comment: CommentListItem) => {
             return (
-              <div className={'comment'} key={comment + Math.random()}>
+              <div className={'comment'} key={comment.id + Math.random()}>
                 <div className="comment-header">
                   <div> {comment.date} </div>
                   <div
