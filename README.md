@@ -1,5 +1,6 @@
 React App for searhing movies
-##Features:
+
+## Features:
 
 List of movies
 
@@ -13,7 +14,7 @@ Seaching movies
 
 Routing
 
-Created by React, React Hooks, Redux (Toolkits)
+### Created by React, React Hooks, Redux (Toolkits)
 
 You can [test here](https://robertd2000.github.io/Movies-yts-react-redux/)
 
