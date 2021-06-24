@@ -1,3 +1,22 @@
+React App for searhing movies
+##Features:
+
+List of movies
+
+Movie details
+
+Comments (using localStorage)
+
+Suggestions
+
+Seaching movies
+
+Routing
+
+Created by React, React Hooks, Redux (Toolkits)
+
+You can [test here](https://robertd2000.github.io/Movies-yts-react-redux/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
