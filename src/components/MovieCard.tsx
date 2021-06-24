@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom';
 import preloader from '../assets/empty.png';
+import { MovieCardType } from '../type';
 import Img from './Img';
-
-type MovieCardType = {
-  genre: string[];
-  title: string;
-  year: number;
-  rating: number;
-  bg: string;
-  id: number;
-};
 
 export const MovieCard: React.FC<MovieCardType> = ({
   genre,
@@ -21,6 +13,7 @@ export const MovieCard: React.FC<MovieCardType> = ({
 }) => {
   const fixedGenres = genre?.slice(0, 3);
   const tilteValid = title.length > 20 ? title.slice(0, 16) + '...' : title;
+
   return (
     <div className="card">
       <h2 className="card-title">{tilteValid}</h2>
@@ -30,7 +23,7 @@ export const MovieCard: React.FC<MovieCardType> = ({
         Rating - {rating}
         <br />
         {fixedGenres
-          ? fixedGenres.map((genre) => <div key={genre}>{genre}</div>)
+          ? fixedGenres.map((genre: string) => <div key={genre}>{genre}</div>)
           : ''}
         <br />
         {year}

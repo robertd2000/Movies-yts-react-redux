@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getMoviesDetails } from '../redux/reducer';
-import { RootReducer } from '../type';
+import { MovieData, RootReducer } from '../type';
 import Img from './Img';
 import preloader from '../assets/empty.png';
 import s from './MovieDetails.module.css';
 import { Comments } from './Comments';
+import { MovieSuggestions } from './MovieSuggestions';
 
 const MovieDetailsData = (props: any) => {
   let movieId = props.match.params.id;
@@ -14,9 +15,14 @@ const MovieDetailsData = (props: any) => {
   const movie = useSelector(
     (state: RootReducer) => state.reducer.curretMovieDetails
   );
+
+  const movieSuggestions = useSelector(
+    (state: RootReducer) => state.reducer.curretMovieSuggestions
+  );
+  console.log(movieSuggestions);
   useEffect(() => {
     dispatch(getMoviesDetails(movieId));
-  }, []);
+  }, [movieId]);
 
   const {
     background_image,
@@ -29,8 +35,7 @@ const MovieDetailsData = (props: any) => {
     runtime,
     title,
     year,
-    yt_trailer_code,
-  } = movie;
+  }: MovieData = movie;
 
   return (
     <>
@@ -45,7 +50,7 @@ const MovieDetailsData = (props: any) => {
           <div className={s.movieInfo}>
             <div className={s.title}>{title}</div>
             <div>{year}</div>
-            <div>
+            <div className={s.genresWrapper}>
               {genres
                 ? genres.map((genre: string) => (
                     <span key={genre}>{genre}/</span>
@@ -60,6 +65,7 @@ const MovieDetailsData = (props: any) => {
               <span>&#9733; {rating}</span>
             </div>
           </div>
+          <MovieSuggestions movieSuggestions={movieSuggestions} />
         </div>
       </div>
       <div className={s.synopsis}>

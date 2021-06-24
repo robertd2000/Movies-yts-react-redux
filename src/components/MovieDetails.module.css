@@ -35,7 +35,7 @@
 }
 
 .img {
-  width: 40%;
+  width: 25%;
   margin: 10px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .movieInfo {
-  width: 45%;
+  width: 30%;
   margin: 10px;
   font-weight: 700;
   font-size: 24px;
@@ -67,6 +67,29 @@
   margin: 10px;
 }
 
+.movieSuggestions {
+  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movieSuggestionsCard {
+  /* width: 50%; */
+  max-width: 100px;
+  flex-wrap: wrap;
+  margin: 5px;
+  color: #fff;
+}
+
+.movieSuggestionsCard img {
+  max-width: 100px;
+}
+
+.movieSuggestionsCard a {
+  color: #fff;
+}
+
 .synopsis {
   max-width: 900px;
   margin: 20px auto;
@@ -86,4 +109,8 @@
 
 .movieTechData {
   margin-top: 30px;
+}
+
+.genresWrapper {
+  word-break: break-all;
 }

@@ -8,6 +8,7 @@ const initialState = {
   searchedMovie: '',
   isLoading: false,
   curretMovieDetails: {},
+  curretMovieSuggestions: [],
 };
 
 export const getMoviesList = createAsyncThunk(
@@ -44,7 +45,9 @@ const moviesListSlice = createSlice({
       })
       .addCase(getMoviesDetails.pending, () => {})
       .addCase(getMoviesDetails.fulfilled, (state, action: any) => {
-        state.curretMovieDetails = action.payload.data.movie;
+        const [details, movie_suggestions] = action.payload;
+        state.curretMovieDetails = details.data.movie;
+        state.curretMovieSuggestions = movie_suggestions.data.movies;
       });
   },
 });

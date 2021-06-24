@@ -4,7 +4,7 @@ import { RootReducer } from '../type';
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const pageSize = 20;
+  const pageSize: number = 20;
   const searchedMovie = useSelector(
     (state: RootReducer) => state.reducer.searchedMovie
   );
@@ -16,34 +16,25 @@ const Pagination = () => {
     Math.ceil(state.reducer.totalPages / pageSize)
   );
 
-  const changePage = (e: any, page: number) => {
-    e.preventDefault();
+  const changePage = (page: number) => {
     dispatch(getMoviesList({ title: searchedMovie, page }));
   };
 
-  const prevPage = (e: any) => {
-    e.preventDefault();
-
+  const prevPage = () => {
     if (currentPage === 1 || currentPage < 1) return false;
     dispatch(getMoviesList({ title: searchedMovie, page: currentPage - 1 }));
   };
 
-  const nextPage = (e: any) => {
-    e.preventDefault();
-
+  const nextPage = () => {
     if (currentPage > totalPages || currentPage === totalPages) return false;
     dispatch(getMoviesList({ title: searchedMovie, page: currentPage + 1 }));
   };
 
-  const toStartPage = (e: any) => {
-    e.preventDefault();
-
+  const toStartPage = () => {
     dispatch(getMoviesList({ title: searchedMovie, page: 1 }));
   };
 
-  const toEndPage = (e: any) => {
-    e.preventDefault();
-
+  const toEndPage = () => {
     dispatch(getMoviesList({ title: searchedMovie, page: totalPages }));
   };
 
@@ -67,15 +58,15 @@ const Pagination = () => {
   }
 
   // create an array of pages to ng-repeat in the pager control
-  const pages: any = [...Array(endPage + 1 - startPage).keys()].map(
+  const pages: number[] = [...Array(endPage + 1 - startPage).keys()].map(
     (i) => startPage + i
   );
 
-  const pageItem = pages.map((page: any) => {
+  const pageItem = pages.map((page: number) => {
     return (
       <li key={page}>
         <span
-          onClick={(e) => changePage(e, page)}
+          onClick={() => changePage(page)}
           className={currentPage === page ? 'active' : ''}
         >
           {page}
